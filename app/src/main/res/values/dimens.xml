@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="new_movies_margin_top">25sp</dimen>
+    <dimen name="movie_text_size">30sp</dimen>
+    <dimen name="margin_right">10sp</dimen>
+</resources>
