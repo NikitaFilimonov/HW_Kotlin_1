@@ -11,4 +11,5 @@
     <string name="_2021">2021</string>
     <string name="movie_1">Movie 1</string>
     <string name="_10">10</string>
+    <string name="RecyclerItemText">Фильм1</string>
 </resources>

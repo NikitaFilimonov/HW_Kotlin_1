@@ -1,4 +1,4 @@
-package com.example.hw_filimonov.view
+package com.example.hw_filimonov.view.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -70,7 +70,7 @@ class MovieFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = MovieFragment()
+        fun newInstance(bundle: Bundle) = MovieFragment()
     }
 }
 
