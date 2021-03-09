@@ -14,15 +14,17 @@ class MainViewModel(
 
     fun getLiveData() = liveDataToObserve
 
-    fun getMovieFromLocalSource() = getDataFromLocalSource()
+    fun getMovieFromLocalSourceRus() = getDataFromLocalSource(isRussian = true)
 
-    fun getMovieFromRemoteSource() = getDataFromLocalSource()
+    fun getMovieFromLocalSourceWorld() = getDataFromLocalSource(isRussian = false)
 
-    private fun getDataFromLocalSource() {
+    fun getMovieFromRemoteSource() = getDataFromLocalSource(isRussian = true)
+
+    private fun getDataFromLocalSource(isRussian: Boolean) {
         liveDataToObserve.value = AppState.Loading
         Thread {
             sleep(1000)
-            liveDataToObserve.postValue(AppState.Success(repositoryImpl.getMovieFromLocalStorage()))
+            liveDataToObserve.postValue(AppState.Success(if (isRussian) repositoryImpl.getMovieFromLocalStorageRus() else repositoryImpl.getMovieFromLocalStorageWorld()))
         }.start()
     }
 }

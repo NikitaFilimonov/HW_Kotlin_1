@@ -2,5 +2,6 @@ package com.example.hw_filimonov.model
 
 interface Repository {
     fun getMovieFromServer(): Movie
-    fun getMovieFromLocalStorage(): Movie
+    fun getMovieFromLocalStorageRus(): Movie
+    fun getMovieFromLocalStorageWorld(): Movie
 }
