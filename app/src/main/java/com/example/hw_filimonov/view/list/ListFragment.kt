@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.hw_filimonov.R
 import com.example.hw_filimonov.databinding.FragmentListBinding
 import com.example.hw_filimonov.model.Movie
@@ -14,6 +13,8 @@ import com.example.hw_filimonov.view.details.MovieFragment
 import com.example.hw_filimonov.viewmodel.AppState
 import com.example.hw_filimonov.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_list.*
+import androidx.lifecycle.ViewModelProvider as ViewModelProvider
 
 class ListFragment : Fragment() {
 
@@ -53,16 +54,15 @@ class ListFragment : Fragment() {
         viewModel.getMovieFromLocalSourceRus()
     }
 
-    private fun changeWeatherDataSet() {
+    private fun changeMovieDataSet() =
         if (isDataSetRus) {
             viewModel.getMovieFromLocalSourceWorld()
-            binding.listFragmentFAB.setImageResource(R.drawable.ic_earth)
+            listFragmentFAB.setImageResource(R.drawable.ic_earth)
         } else {
             viewModel.getMovieFromLocalSourceRus()
-            binding.listFragmentFAB.setImageResource(R.drawable.ic_russia)
-        }
-        isDataSetRus = !isDataSetRus
-    }
+            listFragmentFAB.setImageResource(R.drawable.ic_russia)
+        }.also { isDataSetRus = !isDataSetRus }
+
 
     private fun renderData(appState: AppState) {
         when (appState) {
